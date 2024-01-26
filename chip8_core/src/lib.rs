@@ -101,6 +101,8 @@ impl Emulator {
         let digit3 = (opcode & 0x00F0) >> 4;
         let digit4 = opcode & 0x000F;
         match (digit1, digit2, digit3, digit4) {
+            // NOP
+            (0, 0, 0, 0) => return,
             (_, _, _, _) => unimplemented!("Unimplemented opcode: {}", opcode),
         }
     }
